@@ -11,6 +11,8 @@ def query(update, context):
         query = int(update.inline_query.query)
     except ValueError:
         return
+    if query < 120:
+        return
     qty = int(query / 120)  # int() rounds down
     thread_needed = qty * 12
     leather_needed = qty * 2
